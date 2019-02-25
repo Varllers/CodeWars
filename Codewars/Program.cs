@@ -12,7 +12,7 @@ namespace Codewars
         static void Main(string[] args)
         {
             string s = "abcd\nefgh\nijkl\nmnop";
-            Console.WriteLine(CamelCase("camel case method"));
+            Console.WriteLine(Tribonacci(new double[] { 1, 1, 1 }, 10));
 
             Console.ReadKey();
         }
@@ -251,9 +251,41 @@ namespace Codewars
             List<double> a = Enumerable.Range(0, n).Select(x => Math.Pow(x, 2)).Where(x => x.ToString().Contains(d.ToString())).ToList();
             for (int i = 0; i < a.Count; i++)
             {
-                a[i].ToString().ToCharArray().Where(x=>x==d.ToString())
+                char[] b = a[i].ToString().ToCharArray();
+                foreach (var q in b)
+                {
+                    if (q.ToString() == d.ToString())
+                        res++;
+                }
+
             }
             return  res;
+
+        }
+        public static string Longest(string s1, string s2)
+        {
+
+            return String.Concat((s1 + s2).Distinct().OrderBy(x => x));
+        }
+        public static string PrinterError(String s)
+        {
+            return string.Concat(s.Where(x => (int)x > 109).Count().ToString(),'/',s.Length);
+        }
+        public static double[] Tribonacci(double[] signature, int n)
+        {
+            if (n == 0)
+                return Array.Empty<double>();
+            double[] fib = new double[n];
+            for (int i = 0; i < n && i < 3; i++)
+            {
+                fib[i] = signature[i];
+            }
+
+            for (int i = 3; i < n; i++)
+            {
+                fib[i] = fib[i - 3] + fib[i - 2] + fib[i - 1];
+            }
+            return fib;
         }
     }
     //public class Opstrings
