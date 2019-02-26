@@ -287,6 +287,64 @@ namespace Codewars
             }
             return fib;
         }
+        public static long findNb(long m)
+        {
+            long res = 0;
+            for (int i = 1; res <= m; i++)
+            {
+                res += (long)Math.Pow(i, 3);
+                if (res == m)
+                    return i;
+            }
+            return -1;
+        }
+        public static long digPow(int n, int p) // Not done
+        {
+            int res=0,res2 = 0;
+            char[] gg = n.ToString().ToArray();
+            for (int i = 0; i < gg.Length; i++)
+            {
+                res += (int)gg[i] * p + i;
+            }
+            for (int d = 1; res2*n < res; d++)
+            {
+                res2 = res * d;
+                if (res2 * n == d)
+                    return d;
+            }
+            return res == n * res2 ? res2 : -1;
+        }
+        public static bool is_valid_IP(string ipAddres)
+        {
+            string[] s = ipAddres.Split(new char[] { '.' });
+            if (s.Length != 4 && 
+                return false;
+            return 
+        } // not ddone 
+        public static int TrailingZeros(int n)
+        {
+            int[] r = new int[n];
+            r[0] = 1;
+            int res = 0;
+            for (int i = 1; i < n; i++)
+            {
+                r[i] *= i + 1;
+            }
+            for (int i = 10; i < r[n]; i *= 10)
+            {
+                if (r[n - 1] % i == 0)
+                    res++;
+            }
+            return res; 
+        }  // not done 
+        public static int GetVowelCount(string str)
+        {
+            int vowelCount = 0;
+
+            vowelCount = str.ToCharArray().Where(x=>x.ToString().Contains("a", "e", "i", "o", "u"))
+
+            return vowelCount;
+        }
     }
     //public class Opstrings
     //{
